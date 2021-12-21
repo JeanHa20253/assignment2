@@ -4,11 +4,13 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from wtf_form import *
 from flask_ckeditor import CKEditor
+import os
+
 GMAIL_ACC='testing.minhanh@gmail.com'
 GMAIL_PASS='151002python()'
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'minhanh'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 Bootstrap(app)
 ckeditor= CKEditor(app)
