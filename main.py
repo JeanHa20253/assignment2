@@ -47,7 +47,8 @@ db.create_all()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    works = Products.query.all()
+    return render_template('index.html', posts=works)
 
 
 @app.route('/contact', methods=['POST','GET'])
@@ -83,7 +84,7 @@ def send_mail(username,message,email,phonenumber,subject):
 # for each portfolio:
 @app.route('/portfolio/<id>')
 def portfolio(id):
-    return render_template('no_sidebar.html', portfolio=id)
+    return render_template('no-sidebar.html', portfolio=id)
 
 @app.route('/boomchakalaka',methods=['POST','GET'])
 def hello():
@@ -103,6 +104,10 @@ def hello():
 
     return render_template('post.html', subtitle_contact='Well done', form= form)
 
+
+@app.route('/allworks')
+def all():
+    return render_template('no-sidebar.html')
 
 
 if __name__ == '__main__':
