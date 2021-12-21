@@ -1,0 +1,51 @@
+
+<!--{% import "bootstrap/wtf.html" as wtf %}-->
+
+{% include "header.html" %}
+<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>WELCOME BACK</h2>
+						</header>
+						<p><strong>{{subtitle_contact}}</strong>
+						<br />
+
+						<br />
+
+						<footer>
+							<ul class="buttons stacked">
+								<li><a href="#main" class="button fit scrolly">Let's save and display your masterpiece ^^.</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<!-- One -->
+						<section class="wrapper style4 special container medium" style="background-color:#F0E9D2; ">
+
+							<!-- Content -->
+								<div class="content" style="color: purple; ">
+									{{ ckeditor.load() }}
+									{{ ckeditor.config(name='describe') }}
+									{{ wtf.quick_form(form, novalidate=True) }}
+								</div>
+
+						</section>
+
+				</article>
+
+{% include "footer.html" %}
